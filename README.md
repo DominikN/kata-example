@@ -26,11 +26,19 @@ and run:
 ```bash
 sudo docker run --rm -it \
 --env-file ./.env \
--v dckrtest_v:/var/lib/husarnet \
+-v my-container-1-v:/var/lib/husarnet \
 -v /dev/net/tun:/dev/net/tun \
 --cap-add NET_ADMIN \
 --sysctl net.ipv6.conf.all.disable_ipv6=0 \
 kata-example
 ```
 
-(if hostname inside container doesn't work, use `-h my-container-1`)
+TODO: if I run the command in above way, I see a container number instead of hostname, eg. `root@32943104i0`. Running with `--privileged` flag makes the hostname visible in the terminal session, eg. `root@my-container-1`. Temporary solution might be running a container with `-h my-container-1` option. You can still use IPv6 Husarnet address in all cases.
+
+```bash
+sudo docker run --rm -it --privileged \
+--env-file ./.env \
+-v dckrtest_v:/var/lib/husarnet \
+--sysctl net.ipv6.conf.all.disable_ipv6=0 \
+kata-example
+```

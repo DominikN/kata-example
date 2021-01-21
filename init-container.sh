@@ -22,7 +22,7 @@ function print_instruction() {
     
     echo "*******************************************"
     echo "💡 Tip"
-    echo "To SSH your container execute in another terminal session:"
+    echo "To SSH your container execute in a new terminal session:"
     echo ""
     echo "ssh johny@${ipv6addr}"
     echo ""
