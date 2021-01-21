@@ -22,9 +22,11 @@ function print_instruction() {
     
     echo "*******************************************"
     echo "💡 Tip"
-    echo "To access a webserver visit:"
-    echo "👉 http://[${ipv6addr}]:80 👈"
-    echo "in your web browser 💻" 
+    echo "To SSH your container execute in another terminal session:"
+    echo ""
+    echo "ssh johny@${ipv6addr}"
+    echo ""
+    echo "(default password is \"johny\" as well)"
     echo "*******************************************"
     echo ""
 }
@@ -60,5 +62,7 @@ echo "done"
 echo ""
 
 print_instruction < <(husarnet status)
+
+/usr/sbin/sshd -D &
 
 /bin/bash
